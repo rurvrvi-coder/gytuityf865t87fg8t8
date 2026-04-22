@@ -4,11 +4,8 @@ from datetime import datetime
 from telegram import Bot, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, JobQueue
 from telegram.error import TelegramError
-from dotenv import load_dotenv
 
-load_dotenv()
-
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 DATA_FILE = "data.txt"
 
 def get_chat_id():
@@ -37,7 +34,7 @@ async def send_notification(context):
 
 async def main():
     if not TOKEN:
-        print("Установи TELEGRAM_BOT_TOKEN в .env")
+        print("Установи TELEGRAM_BOT_TOKEN в переменных окружения")
         return
     
     app = Application.builder().token(TOKEN).build()
