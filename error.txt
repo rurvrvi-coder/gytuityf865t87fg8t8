@@ -1,0 +1,94 @@
+Starting Container
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+    ~~~~^^
+  File "/app/bot.py", line 43, in main
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+    updater = Updater(bot=bot, update_queue=update_queue)
+  File "/app/bot.py", line 54, in <module>
+    main()
+Traceback (most recent call last):
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+Traceback (most recent call last):
+  File "/app/bot.py", line 54, in <module>
+    main()
+  File "/app/bot.py", line 43, in main
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+    updater = Updater(bot=bot, update_queue=update_queue)
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+    main()
+    ~~~~^^
+  File "/app/bot.py", line 43, in main
+    app = Application.builder().token(TOKEN).build()
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+Traceback (most recent call last):
+  File "/app/bot.py", line 54, in <module>
+    main()
+    ~~~~^^
+  File "/app/bot.py", line 43, in main
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+    updater = Updater(bot=bot, update_queue=update_queue)
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+Traceback (most recent call last):
+  File "/app/bot.py", line 54, in <module>
+    main()
+    ~~~~^^
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+    updater = Updater(bot=bot, update_queue=update_queue)
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+Traceback (most recent call last):
+  File "/app/bot.py", line 54, in <module>
+    main()
+    ~~~~^^
+  File "/app/bot.py", line 43, in main
+    app = Application.builder().token(TOKEN).build()
+    updater = Updater(bot=bot, update_queue=update_queue)
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+Traceback (most recent call last):
+  File "/app/bot.py", line 54, in <module>
+    main()
+    ~~~~^^
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/bot.py", line 54, in <module>
+    main()
+    ~~~~^^
+  File "/app/bot.py", line 43, in main
+    updater = Updater(bot=bot, update_queue=update_queue)
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_updater.py", line 128, in __init__
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes
+  File "/app/bot.py", line 54, in <module>
+    main()
+    ~~~~^^
+  File "/app/bot.py", line 43, in main
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+Traceback (most recent call last):
+    ~~~~^^
+    app = Application.builder().token(TOKEN).build()
+  File "/app/.venv/lib/python3.13/site-packages/telegram/ext/_applicationbuilder.py", line 312, in build
+    updater = Updater(bot=bot, update_queue=update_queue)
+    self.__polling_cleanup_cb: Optional[Callable[[], Coroutine[Any, Any, None]]] = None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute '_Updater__polling_cleanup_cb' and no __dict__ for setting new attributes

@@ -2,7 +2,7 @@ import os
 import asyncio
 from datetime import datetime
 from telegram import Bot, Update
-from telegram.ext import Application, CommandHandler, ContextTypes, JobQueue
+from telegram.ext import Application, CommandHandler, ContextTypes
 from telegram.error import TelegramError
 from dotenv import load_dotenv
 
@@ -35,7 +35,7 @@ async def send_notification(context):
     except TelegramError as e:
         print(f"Ошибка отправки: {e}")
 
-def main():
+async def main():
     if not TOKEN:
         print("Установи TELEGRAM_BOT_TOKEN в .env")
         return
@@ -48,7 +48,10 @@ def main():
     
     print("Бот запущен. Отправь /start боту.")
     
-    app.run_polling()
+    await app.initialize()
+    await app.start()
+    await app.updater.start_polling()
+    await asyncio.Future()
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
