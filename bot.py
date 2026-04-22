@@ -2,7 +2,7 @@ import os
 import asyncio
 from datetime import datetime
 from telegram import Bot, Update
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, ContextTypes, JobQueue
 from telegram.error import TelegramError
 from dotenv import load_dotenv
 
