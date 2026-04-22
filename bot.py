@@ -1,9 +1,8 @@
 import os
 import asyncio
-import schedule
 from datetime import datetime
 from telegram import Bot, Update
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, ContextTypes, JobQueue
 from telegram.error import TelegramError
 from dotenv import load_dotenv
 
@@ -11,8 +10,6 @@ load_dotenv()
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 DATA_FILE = "data.txt"
-
-bot = Bot(token=TOKEN)
 
 def get_chat_id():
     if os.path.exists(DATA_FILE):
@@ -28,35 +25,30 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_chat_id(update.message.chat_id)
     await update.message.reply_text("Готово! Уведомления будут приходить каждые 15 минут.")
 
-def send_notification():
+async def send_notification(context):
     chat_id = get_chat_id()
     if not chat_id:
         return
     now = datetime.now().strftime("%H:%M")
     try:
-        bot.send_message(chat_id=int(chat_id), text=f"Уведомление! Время: {now}")
+        await context.bot.send_message(chat_id=int(chat_id), text=f"Уведомление! Время: {now}")
     except TelegramError as e:
         print(f"Ошибка отправки: {e}")
-
-def run_scheduler():
-    while True:
-        schedule.run_pending()
-        import time
-        time.sleep(60)
 
 def main():
     if not TOKEN:
         print("Установи TELEGRAM_BOT_TOKEN в .env")
         return
     
-    schedule.every(15).minutes.do(send_notification)
-    
-    import threading
-    threading.Thread(target=run_scheduler, daemon=True).start()
-    
     app = Application.builder().token(TOKEN).build()
+    
+    app.job_queue.run_repeating(send_notification, interval=900, first=10)
+    
     app.add_handler(CommandHandler("start", start))
     
     print("Бот запущен. Отправь /start боту.")
     
     app.run_polling()
+
+if __name__ == "__main__":
+    main()
