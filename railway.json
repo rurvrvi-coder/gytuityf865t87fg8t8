@@ -1,7 +1,6 @@
 {
   "$schema": "https://railway.appchemas.app/railway.schema.json",
   "build": {
-    "builder": "python",
     "pythonVersion": "3.12"
   },
   "deploy": {
