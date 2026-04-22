@@ -1,5 +1,5 @@
 import os
-import threading
+import asyncio
 import schedule
 from datetime import datetime
 from telegram import Bot, Update
@@ -28,12 +28,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     save_chat_id(update.message.chat_id)
     await update.message.reply_text("Готово! Уведомления будут приходить каждые 15 минут.")
 
-def run_scheduler():
-    while True:
-        schedule.run_pending()
-        import time
-        time.sleep(60)
-
 def send_notification():
     chat_id = get_chat_id()
     if not chat_id:
@@ -44,6 +38,12 @@ def send_notification():
     except TelegramError as e:
         print(f"Ошибка отправки: {e}")
 
+def run_scheduler():
+    while True:
+        schedule.run_pending()
+        import time
+        time.sleep(60)
+
 def main():
     if not TOKEN:
         print("Установи TELEGRAM_BOT_TOKEN в .env")
@@ -51,6 +51,7 @@ def main():
     
     schedule.every(15).minutes.do(send_notification)
     
+    import threading
     threading.Thread(target=run_scheduler, daemon=True).start()
     
     app = Application.builder().token(TOKEN).build()
